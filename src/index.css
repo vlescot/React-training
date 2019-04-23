@@ -35,3 +35,6 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
 .notification{
   margin-bottom: 6px;
 }
+#deleteModal .row {
+  margin-bottom: 0 !important;
+}

@@ -17,3 +17,16 @@ export const createProject = (project) => {
         })
     }
 }
+
+export const deleteProject = (project) => {
+    return (dispatch, getState, { getFirebase, getFirestore }) => {
+        const firestore = getFirestore();
+
+        firestore.collection('projects').doc(project.id)
+            .delete().then(() => {
+                dispatch({ type: 'DELETE_SUCCESS' })
+            }).catch((err) => {
+                dispatch({ type: 'DELETE_ERROR', err })
+            })
+    }
+}
